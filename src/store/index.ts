@@ -1,14 +1,24 @@
-import { createStore } from 'vuex'
+import Vuex from 'vuex';
 
-export default createStore({
+const commonStore = new Vuex.Store({
   state: {
+    loadAllData: false
   },
   getters: {
+    getAllData(state) {
+      return state.loadAllData;
+    }
   },
   mutations: {
+    SET_ALL_DATA(state, value) {
+      return state.loadAllData = value;
+    }
   },
   actions: {
+    ['setAllData']({commit}, value) {
+      commit('SET_ALL_DATA', value);
+    }
   },
-  modules: {
-  }
-})
+});
+
+export default commonStore;

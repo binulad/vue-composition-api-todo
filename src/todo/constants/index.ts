@@ -8,7 +8,8 @@ const TodoConstants = {
     TODO: "todo"
   },
   VALIDATIONS: {
-    REQUIRED: "This field is required"
+    REQUIRED: "This field is required",
+    TRIM_DATA: "Content must be trimmed"
   }
 };
 export { TodoConstants };

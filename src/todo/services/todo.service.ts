@@ -1,6 +1,6 @@
 import { Http } from "@/services/http-client";
 import { TodoConstants } from "@/todo/constants";
-import { AddTodoItem } from "../model/todo.model";
+import { AddTodoItem, TodoList } from "../model/todo.model";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -26,6 +26,23 @@ class TodoService {
   */ 
   addTodoItem(data: AddTodoItem) {
     return Http.post(`${BASE_URL}/${TodoConstants.API_URL.TODO}`, data);
+  }
+
+  /**
+   * Get todo item by id
+   * @param id: Id of the Todo Item
+  */
+  getTodoItemById(id: number) {
+    return Http.get(`${BASE_URL}/${TodoConstants.API_URL.TODO}/${id}`);
+  }
+
+  /**
+   * Update item in Todo list
+   * @param id: Id of the Todo Item
+   * @param data: data of the Todo Item
+  */ 
+  updateTodoItem(id: number, data: AddTodoItem) {
+    return Http.put(`${BASE_URL}/${TodoConstants.API_URL.TODO}/${id}`, data);
   }
 }
 
